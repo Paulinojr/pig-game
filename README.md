@@ -1,2 +1,2 @@
-# pig-game
+# Pig Game
 simple JS pig dice game. OINK OINK! 🐷 
