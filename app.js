@@ -9,9 +9,29 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, dice;
+var scores, roundScore, activePlayer;
 
 scores = [0, 0];
 roundScore = 0;
-activePlayer = 0
-dice = Math.floor(Math.random() * 6) + 1;
+activePlayer = 0;
+
+//hide the dice for when the game hasn't started yet
+document.querySelector('.dice').style.display = 'none';
+
+//start the scores with 0
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+
+document.querySelector('.btn-roll').addEventListener('click', function() {
+    //generate a random number from 1 to 6
+    dice = Math.floor(Math.random() * 6) + 1;
+
+    //display the dice
+    var diceDOM = document.querySelector('.dice');
+    diceDOM.style.display = 'block';
+    diceDOM.src = 'dice-' + dice + '.png';
+
+    //update the round score if the dice is not 1
+})
