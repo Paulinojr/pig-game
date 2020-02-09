@@ -21,8 +21,8 @@ document.querySelector('.dice').style.display = 'none';
 //start the scores with 0
 document.getElementById('score-0').textContent = '0';
 document.getElementById('score-1').textContent = '0';
-document.getElementById('current-1').textContent = '0';
 document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
     //generate a random number from 1 to 6
@@ -34,4 +34,19 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     diceDOM.src = 'dice-' + dice + '.png';
 
     //update the round score if the dice is not 1
+    if(dice !== 1){
+        roundScore += dice;
+        document.querySelector('#current-' + activePlayer).textContent = roundScore;
+    }else{
+        activePlayer == 0 ? activePlayer = 1 : activePlayer = 0;
+        roundScore = 0;
+
+        document.getElementById('current-0').textContent = '0';
+        document.getElementById('current-1').textContent = '0';
+
+        document.querySelector('.player-0-panel').classList.toggle('active');
+        document.querySelector('.player-1-panel').classList.toggle('active');
+
+        document.querySelector('.dice').style.display = 'none';
+    }
 })
