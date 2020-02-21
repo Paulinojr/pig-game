@@ -37,7 +37,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         }
 
         //update the round score if the dice is not 1
-        if(dice !== 1 || dice2 !== 1){
+        if(dice !== 1 && dice2 !== 1){
             roundScore += dice + dice2;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
         }else{
